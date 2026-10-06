@@ -287,7 +287,7 @@ test('the result and editor are accessible with keyboard-friendly labels', async
 });
 test('small and wide layouts fit without horizontal scrolling', async ({ page }, testInfo) => {
   await ready(page);
-  for (const width of [320, 768, 1440]) {
+  for (const width of [320, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await expect(page.getByRole('button', { name: 'Run rehearsal' })).toBeVisible();
