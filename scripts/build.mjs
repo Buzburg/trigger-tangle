@@ -14,6 +14,8 @@ let html = await readFile('src/index.html', 'utf8');
 for (const marker of ['<!-- CSP -->', '<!-- STYLE -->', '<!-- SCRIPT -->']) if (!html.includes(marker)) throw new Error(`Missing HTML build marker: ${marker}`);
 html = html.replace('<!-- CSP -->', () => `<meta http-equiv="Content-Security-Policy" content="${csp}">`).replace('<!-- STYLE -->', () => `<style>${css.code}</style>`).replace('<!-- SCRIPT -->', () => `<script>${script}</script>`).replace('<html lang="en">', () => `<!--\n${license}\n-->\n<html lang="en">`);
 await writeFile('dist/trigger-tangle.html', html);
+await mkdir('dist/site', { recursive: true });
+await writeFile('dist/site/index.html', html);
 await build({ entryPoints: ['src/cli.ts'], outfile: 'dist/trigger-tangle.mjs', bundle: true, platform: 'node', format: 'esm', target: 'node22', legalComments: 'inline', banner: { js: `/*\n${license}\n*/` } });
 const sums = [];
 for (const name of ['trigger-tangle.html', 'trigger-tangle.mjs']) {

@@ -1,6 +1,7 @@
 import { EXAMPLES } from './examples';
 import { parseBlueprint } from './model';
 import { htmlReport } from './report';
+import { mountSyncBuilder } from './sync-builder-view';
 import type { Analysis, Blueprint, Budget, Condition, Signal, State, Transition, Workflow } from './types';
 
 declare const __WORKER_SOURCE__: string;
@@ -383,6 +384,9 @@ for (const [index, example] of EXAMPLES.entries()) {
   button.addEventListener('click', () => loadBlueprint(example.blueprint, example.description, example.id));
   element('#examples').append(button);
 }
+mountSyncBuilder(element('#sync-builder'), blueprint => {
+  loadBlueprint(blueprint, 'Your two-way sync: explicit rules for the two resources you named.', null);
+});
 const first = EXAMPLES[0];
 if (first) loadBlueprint(first.blueprint, first.description, first.id);
 else fail(new Error('No example blueprints are available.'));

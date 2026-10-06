@@ -1,6 +1,14 @@
-# TriggerTangle v0.1.0
+# TriggerTangle v0.2.0
 
 Rehearse how separate automations trigger each other using an explicit, limited event model. See a reachable cycle, compare disabling a workflow, or learn that the declared chain settles for the selected starting event.
+
+## New in this release
+
+- Build a two-way sync by naming two resources and an event, without writing JSON.
+- Try the shared origin-marker rule in both directions, with its one-hop behavior and real-system assumptions explained.
+- Invalid builder drafts preserve the last valid design and report.
+- A static-host-ready app is generated in `dist/site/index.html`; no public deployment is automatic.
+- Includes a bounded launch-assistant plan, channel rules and a short demo outline.
 
 ## Downloads
 
@@ -22,6 +30,6 @@ The released app and CLI require no runtime packages, account connection, or mod
 
 `settles` applies only to the selected seed and declared rules. `loop-found` establishes a repeatable cycle in this model. `inconclusive` means the exploration could not finish within its limits without establishing a cycle. A discovered cycle can be reported even when the rest of the graph is incomplete; check the report's completeness field.
 
-No live systems are connected or changed. v0.1 does not import platform exports or model time, retries, concurrency, database state, delivery deduplication, or probabilistic agents. Reports contain input data and may be sensitive. Results do not authorize any operating-system or business action.
+No live systems are connected or changed. v0.2 does not import platform exports or model time, retries, concurrency, database state, delivery deduplication, or probabilistic agents. Reports contain input data and may be sensitive. Results do not authorize any operating-system or business action.
 
-See [the model contract](https://github.com/Buzburg/trigger-tangle/blob/v0.1.0/docs/DESIGN.md) and [security boundaries](https://github.com/Buzburg/trigger-tangle/blob/v0.1.0/SECURITY.md) before applying a rehearsal to a real workflow.
+See [the model contract](https://github.com/Buzburg/trigger-tangle/blob/v0.2.0/docs/DESIGN.md) and [security boundaries](https://github.com/Buzburg/trigger-tangle/blob/v0.2.0/SECURITY.md) before applying a rehearsal to a real workflow.

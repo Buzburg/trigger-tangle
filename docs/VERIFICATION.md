@@ -5,8 +5,9 @@ Local verification date: October 6, 2026. Windows, Node.js 25.9.0, Playwright 1.
 ## Results
 
 - Strict TypeScript check passed.
-- All 72 core, validation, CLI and report tests passed against the built CLI.
-- All 36 browser tests passed against the final standalone HTML, loaded through `file://` with network access disabled.
+- All 78 core, validation, builder, CLI and report tests passed against the built CLI.
+- All 42 browser tests passed against the final standalone HTML, loaded through `file://` with network access disabled.
+- Builder checks cover both resource directions, exact IDs, shared marker behavior, invalid drafts preserving the valid result, export, literal markup, narrow layouts and accessibility.
 - A separate transitive-closure oracle checked every one of the 512 possible three-node directed graphs. Every reported cycle witness was checked for reachability, continuity and closure.
 - Tested reconverging branches, duplicate emissions, exact counts above JavaScript's safe integer range, missing versus null fields, marker guards, independent sibling effects, disabled workflows and exact resource identity.
 - Tested complete searches that finish exactly at a budget, incomplete searches, and a valid cycle witness discovered within an otherwise incomplete graph. Incomplete results never report settlement or complete counts.

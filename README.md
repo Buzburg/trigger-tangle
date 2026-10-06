@@ -13,12 +13,14 @@ TriggerTangle rehearses that interaction **before you connect real accounts**. D
 1. Download **[trigger-tangle.html from the latest release](https://github.com/Buzburg/trigger-tangle/releases/latest)**.
 2. Open it in a current desktop Chromium or Firefox browser. No installation or connection needed.
 3. Try contact ping-pong, a marker-guarded sync, an auto-reply loop or an ordinary sales handoff.
-4. Switch a workflow off to rehearse an intervention. Import your own blueprint through the advanced editor.
+4. Open **Build your own two-way sync** to name two resources and try an origin marker without writing JSON. Switch a workflow off to rehearse an intervention; use the advanced editor for larger designs.
 5. Export a complete JSON or readable HTML report, including the blueprint that produced it.
 
 No account, model, API key, telemetry, storage or runtime network calls. The app never runs your workflows or changes your accounts. Reports include resource identifiers and sample data; review before sharing.
 
 **This is an explicit design model, not a live n8n/Zapier scanner.** You supply the resource IDs and behavior. Results apply only to the chosen seed and those declarations.
+
+For a public demo, the build also produces `dist/site/index.html`. See [hosting instructions](docs/HOSTING.md) and the [launch assistant plan](docs/GROWTH.md). No site is deployed automatically.
 
 ## What makes this useful?
 
