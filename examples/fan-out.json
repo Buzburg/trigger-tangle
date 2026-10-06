@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "name": "Sales handoff",
+  "seed": {
+    "resource": "crm/deals",
+    "event": "won",
+    "data": {
+      "deal": "demo-8"
+    }
+  },
+  "workflows": [
+    {
+      "id": "draft-invoice",
+      "name": "Prepare an invoice draft",
+      "on": {
+        "resource": "crm/deals",
+        "event": "won"
+      },
+      "emit": [
+        {
+          "resource": "billing/drafts",
+          "event": "created"
+        }
+      ]
+    },
+    {
+      "id": "onboard",
+      "name": "Create an onboarding task",
+      "on": {
+        "resource": "crm/deals",
+        "event": "won"
+      },
+      "emit": [
+        {
+          "resource": "ops/tasks",
+          "event": "created"
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "name": "Queue draft review",
+      "on": {
+        "resource": "billing/drafts",
+        "event": "created"
+      },
+      "emit": [
+        {
+          "resource": "ops/reviews",
+          "event": "requested"
+        }
+      ]
+    }
+  ]
+}

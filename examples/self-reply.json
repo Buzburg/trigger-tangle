@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "Auto-reply trap",
+  "seed": {
+    "resource": "mail/all-folders",
+    "event": "message",
+    "data": {
+      "conversation": "example-17"
+    }
+  },
+  "workflows": [
+    {
+      "id": "reply",
+      "name": "Reply to each message",
+      "on": {
+        "resource": "mail/all-folders",
+        "event": "message"
+      },
+      "emit": [
+        {
+          "resource": "mail/all-folders",
+          "event": "message"
+        }
+      ]
+    }
+  ]
+}

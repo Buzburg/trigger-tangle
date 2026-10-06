@@ -1,0 +1,23 @@
+{
+  "name": "trigger-tangle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Rehearse how separate automations trigger each other, before connecting real accounts.",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node scripts/test.mjs",
+    "test:browser": "playwright test",
+    "check": "npm run typecheck && npm test && npm run test:browser"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.1",
+    "@playwright/test": "1.58.2",
+    "@types/node": "22.19.15",
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3"
+  },
+  "overrides": {"playwright-core": "1.58.2"}
+}

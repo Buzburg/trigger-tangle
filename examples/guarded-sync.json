@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "name": "Contact sync with an origin marker",
+  "seed": {
+    "resource": "crm/contacts",
+    "event": "updated",
+    "data": {
+      "contact": "sample-42",
+      "origin": "human"
+    }
+  },
+  "workflows": [
+    {
+      "id": "crm-to-sheet",
+      "name": "Copy CRM changes to the sheet",
+      "on": {
+        "resource": "crm/contacts",
+        "event": "updated"
+      },
+      "emit": [
+        {
+          "resource": "sheets/contacts",
+          "event": "updated",
+          "set": {
+            "origin": "contact-sync"
+          }
+        }
+      ],
+      "when": [
+        {
+          "field": "origin",
+          "op": "notEquals",
+          "value": "contact-sync"
+        }
+      ]
+    },
+    {
+      "id": "sheet-to-crm",
+      "name": "Copy sheet changes to the CRM",
+      "on": {
+        "resource": "sheets/contacts",
+        "event": "updated"
+      },
+      "emit": [
+        {
+          "resource": "crm/contacts",
+          "event": "updated",
+          "set": {
+            "origin": "contact-sync"
+          }
+        }
+      ],
+      "when": [
+        {
+          "field": "origin",
+          "op": "notEquals",
+          "value": "contact-sync"
+        }
+      ]
+    }
+  ]
+}

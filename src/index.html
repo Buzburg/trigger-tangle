@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Rehearse how separate automations trigger each other. An offline workbench for explicit workflow designs.">
+    <!-- CSP -->
+    <title>TriggerTangle — Rehearse the chain reaction</title>
+    <!-- STYLE -->
+  </head>
+  <body>
+    <a class="skip-link" href="#workbench">Skip to workbench</a>
+    <header class="masthead page-width">
+      <a class="brand" href="#top" aria-label="TriggerTangle home"><span class="brand-mark" aria-hidden="true">↪<br>↩</span><span>Trigger<span class="brand-light">Tangle</span></span></a>
+      <span class="offline"><span aria-hidden="true">●</span> OFFLINE BY DESIGN</span>
+    </header>
+    <main id="top" class="page-width">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">THE AUTOMATION REHEARSAL WORKBENCH</p>
+          <h1 id="page-title">Catch the<br><span>chain reaction.</span></h1>
+          <p class="lede">One workflow looks fine. Together, they can keep waking each other up. Rehearse the connection before you make it.</p>
+        </div>
+        <aside class="field-note" aria-label="How this works">
+          <p class="eyebrow">A SMALL EXPERIMENT</p>
+          <ol><li><span>01</span> Describe the signal and rules.</li><li><span>02</span> Follow what they trigger.</li><li><span>03</span> Switch one off. Compare.</li></ol>
+          <p>No accounts. No actions. Nothing leaves this page.</p>
+        </aside>
+      </section>
+      <section class="example-shelf" aria-labelledby="examples-title">
+        <div class="section-label"><h2 id="examples-title">Start with a scenario</h2><span>Or bring your own blueprint below</span></div>
+        <div id="examples" class="example-buttons"></div>
+      </section>
+      <div id="workbench" class="workbench">
+        <section class="design-panel" aria-labelledby="design-title">
+          <div class="panel-heading"><div><p class="eyebrow">01 / DECLARE</p><h2 id="design-title">Your design</h2></div><span id="workflow-count" class="count-badge"></span></div>
+          <p id="scenario-description" class="panel-description"></p>
+          <div class="seed-card"><h3>The first signal</h3><div id="seed"></div></div>
+          <div class="workflow-heading"><h3>Connected workflows</h3><button id="reset" class="text-button" type="button">Reset switches</button></div>
+          <p class="help">Switch a workflow off to rehearse a change.</p>
+          <div id="workflow-list" class="workflow-list"></div>
+          <details id="editor-panel" class="editor-panel">
+            <summary>Edit or import a blueprint <span aria-hidden="true">+</span></summary>
+            <div class="editor-content">
+              <p class="help">Use the version-1 JSON format. This is an explicit model, not an import of live platform workflows.</p>
+              <div class="editor-actions"><label class="button secondary import-label" for="import">Import JSON<input id="import" type="file" accept=".json,application/json"></label><button id="save-blueprint" class="secondary" type="button">Save blueprint</button></div>
+              <label for="blueprint">Blueprint JSON</label>
+              <textarea id="blueprint" spellcheck="false" rows="14" maxlength="200000" aria-describedby="editor-help"></textarea>
+              <p id="editor-help" class="help">Up to 200,000 characters. Imported files must be under 800 KB. Edits clear the previous result.</p>
+              <button id="apply" class="primary" type="button">Apply blueprint</button>
+              <div class="budget-field"><label for="budget">Exploration budget</label><select id="budget"><option value="standard">Standard · 256 states / 2,048 transitions</option><option value="extended">Extended · 512 states / 8,192 transitions</option><option value="small">Small · 16 states / 32 transitions</option></select></div>
+            </div>
+          </details>
+        </section>
+        <section class="rehearsal-panel" aria-labelledby="rehearsal-title">
+          <div class="panel-heading"><div><p class="eyebrow">02 / REHEARSE</p><h2 id="rehearsal-title">Follow the consequences</h2></div><button id="run" class="primary" type="button">Run rehearsal <span aria-hidden="true">↗</span></button></div>
+          <div class="status-row"><p id="status" role="status" aria-live="polite">Preparing the first rehearsal…</p><button id="cancel" class="text-button" type="button" hidden>Cancel</button></div>
+          <p id="error" class="error-box" role="alert" hidden></p>
+          <div id="empty-state" class="empty-state" hidden><span class="empty-symbol" aria-hidden="true">↳</span><h3>Ready for another rehearsal.</h3><p>Apply your edits or run the design to see what it triggers.</p></div>
+          <div id="results" hidden>
+            <div id="verdict" class="verdict"><p id="verdict-label" class="eyebrow"></p><h3 id="result-title"></h3><p id="result-reason"></p><p id="completeness" class="completeness"></p></div>
+            <div class="comparison" aria-label="Baseline and current design comparison"><div><p class="eyebrow">ORIGINAL DESIGN</p><p id="baseline-result" class="comparison-value"></p><span id="baseline-count" class="help"></span></div><span class="comparison-arrow" aria-hidden="true">→</span><div><p class="eyebrow">CURRENT DESIGN</p><p id="current-result" class="comparison-value"></p><span id="current-count" class="help"></span></div></div>
+            <div class="metrics" aria-label="Exploration results"><div><span id="states-count" class="metric-value"></span><span>unique signals</span></div><div><span id="transitions-count" class="metric-value"></span><span>causal links</span></div><div><span id="starts-count" class="metric-value"></span><span>modeled workflow starts</span></div></div>
+            <section class="trace-section" aria-labelledby="trace-title"><div class="section-label"><h3 id="trace-title">The causal chain</h3><span id="trace-tag" class="small-tag"></span></div><p id="trace-description" class="help"></p><div id="trace"></div></section>
+            <details class="notes-panel"><summary>What this result can tell you</summary><div><p>A rehearsal is only as accurate as its declared rules. It applies to this seed signal and this model.</p><ul id="notes"></ul><p>Real platforms may behave differently. Timing, retries, concurrency, changed-only writes, database state, idempotency and model randomness are outside this simulation.</p></div></details>
+            <div class="export-bar"><div><h3>Take the evidence with you.</h3><p class="help">Reports contain the resource IDs and fields in your design.</p></div><div class="export-buttons"><button id="save-html" class="secondary" type="button">Save readable report</button><button id="save-json" class="secondary" type="button">Save JSON</button></div></div>
+          </div>
+        </section>
+      </div>
+      <footer><p><strong>TriggerTangle</strong> <span>v0.1 · An experiment by Buzburg</span></p><p>Explicit rules. Visible consequences. Your decision.</p></footer>
+    </main>
+    <noscript><p class="error-box">Enable JavaScript to run this offline rehearsal. No network connection is required.</p></noscript>
+    <!-- SCRIPT -->
+  </body>
+</html>
