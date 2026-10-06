@@ -4,8 +4,8 @@ Working audience: people building automations with n8n and Zapier. This is a hyp
 
 ## What must happen before a public launch
 
-- The GitHub repository is private. The owner previously requested that setting; obtain explicit approval before changing visibility or publishing its contents elsewhere.
-- There is no verified public demo at this writing. Prepare the static app, then obtain approval for a hosting destination and public deployment. Test the resulting link without a GitHub login before putting it in launch material.
+- The owner authorized the public repository and GitHub Pages demo on October 6, 2026. Confirm https://github.com/Buzburg/trigger-tangle and https://buzburg.github.io/trigger-tangle/ are reachable without signing in before proposing any launch contribution.
+- Public availability is not permission to post in communities, send messages, purchase promotion or publish customer examples. Those actions still require separate explicit instructions.
 - Use synthetic examples and review everything being shared. Blueprints and reports contain resource identifiers and sample fields. This app has no telemetry; publishing it must not silently add tracking.
 - Keep the claim narrow: TriggerTangle rehearses declared rules for one starting event. It does not import or scan live n8n/Zapier workflows, connect accounts, execute automations, or certify production safety. A settling model can still omit intended business work.
 

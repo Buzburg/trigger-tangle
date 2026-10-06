@@ -8,7 +8,11 @@ TriggerTangle rehearses that interaction **before you connect real accounts**. D
 
 ![TriggerTangle showing a synthetic cross-workflow rehearsal](docs/screenshot.png)
 
-## Try the offline app
+## Try it
+
+**[Open the live demo](https://buzburg.github.io/trigger-tangle/)** — no installation, account or API key. The app runs in your browser. GitHub serves the page; your blueprints are not sent to a server.
+
+Prefer to use it offline?
 
 1. Download **[trigger-tangle.html from the latest release](https://github.com/Buzburg/trigger-tangle/releases/latest)**.
 2. Open it in a current desktop Chromium or Firefox browser. No installation or connection needed.
@@ -20,7 +24,7 @@ No account, model, API key, telemetry, storage or runtime network calls. The app
 
 **This is an explicit design model, not a live n8n/Zapier scanner.** You supply the resource IDs and behavior. Results apply only to the chosen seed and those declarations.
 
-For a public demo, the build also produces `dist/site/index.html`. See [hosting instructions](docs/HOSTING.md) and the [launch assistant plan](docs/GROWTH.md). No site is deployed automatically.
+The public demo uses `dist/site/index.html`. See [hosting instructions](docs/HOSTING.md) and the [launch assistant plan](docs/GROWTH.md). Demo updates use an explicit publish action after tests pass.
 
 ## What makes this useful?
 

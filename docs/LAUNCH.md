@@ -18,6 +18,8 @@ The limit matters: it checks the rules you declare for one selected starting eve
 
 Repository: https://github.com/Buzburg/trigger-tangle
 
+Browser demo: https://buzburg.github.io/trigger-tangle/
+
 Release: https://github.com/Buzburg/trigger-tangle/releases/latest
 
 This is a general draft for a channel that permits AI-assisted writing and project promotion. Do not paste it into Hacker News, whose current rules prohibit generated text. Verify the intended channel first; see [the launch assistant plan](GROWTH.md).
