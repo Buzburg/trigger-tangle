@@ -17,8 +17,9 @@ await writeFile('dist/trigger-tangle.html', html);
 await mkdir('dist/site', { recursive: true });
 await writeFile('dist/site/index.html', html);
 await build({ entryPoints: ['src/cli.ts'], outfile: 'dist/trigger-tangle.mjs', bundle: true, platform: 'node', format: 'esm', target: 'node22', legalComments: 'inline', banner: { js: `/*\n${license}\n*/` } });
+await build({ entryPoints: ['src/harness-cli.ts'], outfile: 'dist/trigger-tangle-harness.mjs', bundle: true, platform: 'node', format: 'esm', target: 'node22', legalComments: 'inline', banner: { js: `/*\n${license}\n*/` } });
 const sums = [];
-for (const name of ['trigger-tangle.html', 'trigger-tangle.mjs']) {
+for (const name of ['trigger-tangle.html', 'trigger-tangle.mjs', 'trigger-tangle-harness.mjs']) {
   const data = await readFile(`dist/${name}`); sums.push(`${createHash('sha256').update(data).digest('hex')}  ${name}`);
   console.log(`${name}: ${data.length.toLocaleString('en-US')} bytes`);
 }

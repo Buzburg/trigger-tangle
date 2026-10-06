@@ -25,4 +25,4 @@ jobs:
       - name: Publish verified downloads
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/trigger-tangle.html dist/trigger-tangle.mjs dist/SHA256SUMS.txt --verify-tag --title "TriggerTangle $GITHUB_REF_NAME" --notes-file docs/RELEASE.md
+        run: gh release create "$GITHUB_REF_NAME" dist/trigger-tangle.html dist/trigger-tangle.mjs dist/trigger-tangle-harness.mjs dist/SHA256SUMS.txt --verify-tag --title "TriggerTangle $GITHUB_REF_NAME" --notes-file docs/RELEASE.md

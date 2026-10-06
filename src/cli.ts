@@ -3,9 +3,10 @@ import { parseBlueprint } from './model';
 import { htmlReport } from './report';
 import { readInput } from './read-input';
 import { EXAMPLES } from './examples';
+import { VERSION } from './version';
 import type { Budget } from './types';
 
-const HELP = `TriggerTangle 0.1.0 — cross-workflow design rehearsal
+const HELP = `TriggerTangle ${VERSION} — cross-workflow design rehearsal
 
 Usage: node trigger-tangle.mjs blueprint.json [options]
        node trigger-tangle.mjs --example contact-loop [options]

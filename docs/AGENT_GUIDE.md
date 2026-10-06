@@ -2,6 +2,8 @@
 
 Purpose: rehearse how a proposed set of automations responds to one event. The CLI runs locally, requires Node 22+, and needs no account or model key. It cannot execute business actions or grant approval.
 
+For a proposed change, use the [multi-scenario harness](HARNESS.md). Its separate operator-owned suite checks required and forbidden emissions against both designs, so disabling required work cannot silently count as a successful fix. `review-required` always keeps `executionAllowed: false`.
+
 ## A bounded design-review workflow
 
 1. Gather the operator's intended triggers, exact resources, emitted events and important seed scenarios. Record unknown behavior explicitly in your design notes. Do not silently invent platform guarantees.

@@ -37,6 +37,14 @@ The public demo uses `dist/site/index.html`. See [hosting instructions](docs/HOS
 
 ## Use it in an agent or build workflow
 
+**New: [TriggerTangle Harness](docs/HARNESS.md)** compares an original design and an agent's proposal against several operator-owned scenarios. Require an invoice draft, forbid an invoice send, and reject a “fix” that turns all the useful work off. Every result retains human review; the harness executes no workflows.
+
+```sh
+node dist/trigger-tangle-harness.mjs --baseline examples/contact-loop.json --candidate examples/guarded-sync.json --suite examples/contact-suite.json
+```
+
+Build the repository first, or download `trigger-tangle-harness.mjs` and the examples. The command returns JSON evidence for both directions of the sync. See [the harness contract](docs/HARNESS.md) for status codes and integration boundaries.
+
 Download `trigger-tangle.mjs` from the release. Requires **Node.js 22+**, with no runtime package installation.
 
 ```sh
@@ -93,7 +101,7 @@ Resource IDs and event types match exactly, including capitalization. Every matc
 
 There is no persistent business-record state, concurrency, retry behavior, timing, changed-only updates, delivery deduplication or probabilistic agent behavior. A discovered cycle can repeat indefinitely under this deterministic model; it does **not** prove that a real service will run away. A settling result does **not** certify a workflow or establish that intended business work still occurs. Disabling everything settles too.
 
-Only one selected seed is checked per rehearsal. Change seeds and validate important business scenarios separately. No automatic n8n/Zapier import is provided in v0.1: hidden resource expressions and platform conditions require accurate modeling, not optimistic guesses.
+The browser and original CLI check one selected seed per rehearsal. The harness compares up to eight operator-owned scenarios and checks their required and forbidden emissions. No automatic n8n/Zapier import is provided: hidden resource expressions and platform conditions require accurate modeling, not optimistic guesses.
 
 Default budget: 256 unique signal states and 2,048 transition edges. Maximum: 512 states / 8,192 edges. Input has a 200,000-character limit, 100 workflows and 32 distinct data fields. See the complete [blueprint reference](docs/BLUEPRINT.md), [design contract](docs/DESIGN.md) and [security boundaries](SECURITY.md).
 
@@ -107,7 +115,7 @@ npx playwright install chromium firefox
 npm run test:browser
 ```
 
-The build produces a self-contained HTML app, a bundled CLI and SHA-256 checksums. Tests include a separate exhaustive small-graph cycle oracle, exact delivery counts, invalid inputs, browser behavior and actual CLI invocations. See the [verification record](docs/VERIFICATION.md). GitHub Actions rebuilds and tests before publishing release files. Verify downloaded files against `SHA256SUMS.txt`; checksums detect changed bytes but are not an independent publisher signature.
+The build produces a self-contained HTML app, bundled single-scenario and harness CLIs, and SHA-256 checksums. Tests include a separate exhaustive small-graph cycle oracle, exact delivery counts, invalid inputs, browser behavior and actual CLI invocations. See the [verification record](docs/VERIFICATION.md). GitHub Actions rebuilds and tests before publishing release files. Verify downloaded files against `SHA256SUMS.txt`; checksums detect changed bytes but are not an independent publisher signature.
 
 ## Existing work and the narrow gap
 

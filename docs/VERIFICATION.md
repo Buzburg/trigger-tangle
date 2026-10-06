@@ -5,13 +5,14 @@ Local verification date: October 6, 2026. Windows, Node.js 25.9.0, Playwright 1.
 ## Results
 
 - Strict TypeScript check passed.
-- All 78 core, validation, builder, CLI and report tests passed against the built CLI.
+- All 109 core, validation, builder, harness, CLI and report tests passed against the built CLIs.
 - All 42 browser tests passed against the final standalone HTML, loaded through `file://` with network access disabled.
 - Builder checks cover both resource directions, exact IDs, shared marker behavior, invalid drafts preserving the valid result, export, literal markup, narrow layouts and accessibility.
 - A separate transitive-closure oracle checked every one of the 512 possible three-node directed graphs. Every reported cycle witness was checked for reachability, continuity and closure.
 - Tested reconverging branches, duplicate emissions, exact counts above JavaScript's safe integer range, missing versus null fields, marker guards, independent sibling effects, disabled workflows and exact resource identity.
 - Tested complete searches that finish exactly at a budget, incomplete searches, and a valid cycle witness discovered within an otherwise incomplete graph. Incomplete results never report settlement or complete counts.
 - Tested CLI exit codes, blueprint round trips, preservation of source files, invalid UTF-8, BOMs, malformed/unsupported input, nonregular files, size limits and terminal-control escaping.
+- Harness tests cover both sync directions, operator-owned seed replacement, required and forbidden emissions, exact scalar matching, multiple distinct requirements, disabled-work regressions, incomplete results, input-text hashes and the invariant that no result authorizes execution.
 - Browser checks cover baseline/intervention comparison, import/export, cancellation, worker timeouts, already-queued stale responses, unsafe markup rendered as text and standalone report downloads.
 - Automated axe scans reported no violations in the tested workbench/editor/result states in both browsers. This is not a complete accessibility certification.
 - Layout checks cover 320, 768, 1024 and 1440-pixel widths. Desktop and narrow-screen captures were visually inspected.
