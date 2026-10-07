@@ -41,7 +41,7 @@ test('harness CLI binds both-direction rehearsal to unchanged input text and nev
   assert.equal(report.cases.length, 2);
   assert.ok(report.cases.every(item => item.baseline.status === 'blocked' && item.candidate.status === 'review-required'));
   assert.deepEqual(report.evidence, {
-    runnerVersion: '0.3.0', baselineTextSha256: sha(texts[0]!), candidateTextSha256: sha(texts[1]!), suiteTextSha256: sha(texts[2]!),
+    runnerVersion: '0.4.0', baselineTextSha256: sha(texts[0]!), candidateTextSha256: sha(texts[1]!), suiteTextSha256: sha(texts[2]!),
   });
   assert.deepEqual(Object.values(report.inputs), texts.map(text => JSON.parse(text) as unknown));
   assert.deepEqual(await Promise.all([baselinePath, candidatePath, suitePath].map(path => readFile(path, 'utf8'))), texts);

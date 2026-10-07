@@ -22,7 +22,14 @@ jobs:
       - run: npm test
       - run: npx playwright install --with-deps chromium firefox
       - run: npm run test:browser
+      - name: Install the video build tool
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y ffmpeg
+      - name: Render and verify the 20-second walkthrough
+        run: |
+          node scripts/capture-demo.mjs
+          ffmpeg -v error -i dist/trigger-tangle-20s.mp4 -f null -
+          test "$(ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of csv=p=0 dist/trigger-tangle-20s.mp4)" = "600"
       - name: Publish verified downloads
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/trigger-tangle.html dist/trigger-tangle.mjs dist/trigger-tangle-harness.mjs dist/SHA256SUMS.txt --verify-tag --title "TriggerTangle $GITHUB_REF_NAME" --notes-file docs/RELEASE.md
+        run: gh release create "$GITHUB_REF_NAME" dist/trigger-tangle.html dist/trigger-tangle.mjs dist/trigger-tangle-harness.mjs dist/trigger-tangle-demo.html dist/trigger-tangle-20s.mp4 dist/trigger-tangle-demo-evidence.json dist/SHA256SUMS.txt --verify-tag --title "TriggerTangle $GITHUB_REF_NAME" --notes-file docs/RELEASE.md

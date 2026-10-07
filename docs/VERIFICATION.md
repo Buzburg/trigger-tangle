@@ -6,7 +6,9 @@ Local verification date: October 6, 2026. Windows, Node.js 25.9.0, Playwright 1.
 
 - Strict TypeScript check passed.
 - All 109 core, validation, builder, harness, CLI and report tests passed against the built CLIs.
-- All 42 browser tests passed against the final standalone HTML, loaded through `file://` with network access disabled.
+- All 52 browser tests passed against the final standalone app and walkthrough, loaded through `file://` with network access disabled.
+- Walkthrough checks cover real analyzer agreement, both useful sync directions, scene boundaries, deterministic seeking, keyboard playback, reduced motion, offline operation and mobile overflow.
+- The MP4 decoded successfully as 600 frames at 30 fps, 1280 × 720, exactly 20 seconds. Five scene captures were visually inspected. A missing encoder fails without changing the previously completed video or evidence and leaves no partial MP4.
 - Builder checks cover both resource directions, exact IDs, shared marker behavior, invalid drafts preserving the valid result, export, literal markup, narrow layouts and accessibility.
 - A separate transitive-closure oracle checked every one of the 512 possible three-node directed graphs. Every reported cycle witness was checked for reachability, continuity and closure.
 - Tested reconverging branches, duplicate emissions, exact counts above JavaScript's safe integer range, missing versus null fields, marker guards, independent sibling effects, disabled workflows and exact resource identity.
@@ -28,4 +30,4 @@ Browser imports use fatal UTF-8 decoding so invalid bytes cannot silently change
 
 No live n8n, Zapier, CRM, billing, calendar or email integration was executed. No production effectiveness, adoption or worldwide novelty claim is established. Safari/mobile file-selection behavior is untested. The model deliberately excludes stateful records, concurrency, retries, timing and probabilistic decisions; accurate declarations and additional real-system testing remain necessary.
 
-Release automation publishes only after its checks pass and emits `SHA256SUMS.txt`. The delivery procedure downloads the published artifacts and compares their bytes with the tested local build; release status is available on GitHub Actions.
+Release automation publishes only after its checks pass and emits `SHA256SUMS.txt`. HTML and CLI downloads can be compared byte-for-byte with the local build. Video bytes can differ with platform fonts and encoder versions; its evidence file records the exact source and video hashes. Release status is available on GitHub Actions.

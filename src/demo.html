@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="A 20-second illustrated TriggerTangle rehearsal, calculated with the real analyzer using synthetic workflow rules.">
+  <!-- CSP -->
+  <title>TriggerTangle — Watch the chain reaction</title>
+  <!-- STYLE -->
+</head>
+<body>
+<main class="demo" id="demo" data-scene="intro">
+  <header class="masthead">
+    <a class="brand" href="https://buzburg.github.io/trigger-tangle/" aria-label="TriggerTangle workbench"><span class="brand-mark" aria-hidden="true">↪<br>↩</span><span>Trigger<span class="brand-light">Tangle</span></span></a>
+    <span class="format-label">20-SECOND ILLUSTRATED REHEARSAL</span>
+  </header>
+  <section class="story" aria-labelledby="scene-title">
+    <div class="scene-copy"><p class="eyebrow" id="scene-step">01 / THE CONNECTION</p><h1 id="scene-title">One change. One useful sync.</h1><p class="scene-caption" id="scene-caption">A human edits the CRM. A workflow copies the change to a sheet.</p></div>
+    <div class="diagram" id="diagram">
+      <svg viewBox="0 0 1120 300" role="img" aria-labelledby="diagram-title diagram-description">
+        <title id="diagram-title">CRM and sheet workflow connections</title><desc id="diagram-description">A CRM update triggers a copy to the sheet.</desc>
+        <defs><marker id="arrow-forward" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9" fill="var(--teal)"/></marker><marker id="arrow-back" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9" fill="currentColor"/></marker></defs>
+        <path id="forward-path" class="connection forward" d="M 365 123 C 475 35 645 35 755 123" marker-end="url(#arrow-forward)"/>
+        <path id="back-path" class="connection back" d="M 755 188 C 645 276 475 276 365 188" marker-end="url(#arrow-back)"/>
+        <text x="560" y="35" text-anchor="middle" class="arrow-label" id="forward-label">CRM → sheet</text>
+        <text x="560" y="288" text-anchor="middle" class="arrow-label" id="back-label">Sheet → CRM</text>
+        <g class="endpoint" id="crm-node"><rect x="50" y="84" width="310" height="150" rx="8"/><rect class="icon" x="78" y="111" width="38" height="38" rx="5"/><circle cx="97" cy="122" r="5" class="icon-detail"/><path d="M 88 138 Q 97 126 106 138" class="icon-detail" fill="none"/><text class="node-title" x="133" y="139">CRM</text><text class="node-detail" x="78" y="177">Contact updated</text><text class="node-source" id="crm-source" x="78" y="208">Human change</text></g>
+        <g class="endpoint" id="sheet-node"><rect x="760" y="84" width="310" height="150" rx="8"/><rect class="icon" x="788" y="111" width="38" height="38" rx="5"/><path d="M 789 124 H 825 M 789 137 H 825 M 801 112 V 148 M 814 112 V 148" class="icon-detail" fill="none"/><text class="node-title" x="843" y="139">Sheet</text><text class="node-detail" x="788" y="177">Contact updated</text><text class="node-source" id="sheet-source" x="788" y="208">Copied change</text></g>
+        <circle id="forward-pulse" r="11" class="pulse forward-pulse" cx="365" cy="123"/>
+        <circle id="back-pulse" r="11" class="pulse back-pulse" cx="755" cy="188"/>
+        <g id="guard-badge" visibility="hidden"><rect x="429" y="161" width="262" height="54" rx="5"/><text x="560" y="195" text-anchor="middle">Own write ignored</text></g>
+      </svg>
+    </div>
+    <div class="outcome" id="outcome"><span class="outcome-label" id="outcome-label">THE DECLARED DESIGN</span><strong id="outcome-value">2 connected workflows</strong><p id="outcome-note">Both listen for updates. Neither checks who made the change.</p></div>
+    <div class="cta" id="cta" hidden><p class="cta-kicker">NO ACCOUNTS. NO INSTALL. OPEN SOURCE.</p><a href="https://buzburg.github.io/trigger-tangle/" class="cta-button">Try TriggerTangle <span aria-hidden="true">↗</span></a><p class="cta-url">buzburg.github.io/trigger-tangle</p></div>
+  </section>
+  <footer class="disclosure"><span>Illustration of a synthetic, declared model. No live workflows.</span><span>Retries, timing &amp; concurrency are not modeled.</span></footer>
+  <div class="timeline" aria-hidden="true"><div id="timeline-fill"></div></div>
+</main>
+<nav class="playback" id="playback" aria-label="Walkthrough playback"><button id="play-pause" type="button">Play walkthrough</button><button id="replay" type="button">Replay</button><label for="seek">Position</label><input id="seek" type="range" min="0" max="20000" step="100" value="0" aria-valuetext="0 of 20 seconds"><output id="time" for="seek">0:00 / 0:20</output><span id="playback-status" class="visually-hidden" role="status" aria-live="polite">Paused at the start.</span></nav>
+<noscript>This illustrated walkthrough needs JavaScript to calculate its examples. <a href="https://buzburg.github.io/trigger-tangle/">Open TriggerTangle.</a></noscript>
+<!-- SCRIPT -->
+</body>
+</html>

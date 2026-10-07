@@ -10,6 +10,8 @@ TriggerTangle rehearses that interaction **before you connect real accounts**. D
 
 ## Try it
 
+**[Watch the 20-second walkthrough](https://buzburg.github.io/trigger-tangle/demo.html)** · [Download the MP4](https://github.com/Buzburg/trigger-tangle/releases/download/v0.4.0/trigger-tangle-20s.mp4). See a repeating sync, add a marker guard, and verify useful changes still travel in both directions. This illustrated example uses the real checker on synthetic rules. [How it was made](docs/DEMO.md).
+
 **[Open the live demo](https://buzburg.github.io/trigger-tangle/)** — no installation, account or API key. The app runs in your browser. GitHub serves the page; your blueprints are not sent to a server.
 
 Prefer to use it offline?

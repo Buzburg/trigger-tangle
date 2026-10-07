@@ -1,0 +1,509 @@
+:root {
+  --paper:#f6f5f0;
+  --surface:#fffefa;
+  --ink:#152d3c;
+  --muted:#53666d;
+  --line:#cdd5d2;
+  --teal:#08635f;
+  --teal-pale:#e7f2ec;
+  --red:#942b21;
+  --red-pale:#fff0e9;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+[hidden] {
+  display: none !important;
+}
+a {
+  color: var(--teal);
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input {
+  touch-action: manipulation;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+p,
+h1 {
+  margin: 0;
+}
+.demo {
+  width: min(1280px, 100%);
+  height: 720px;
+  padding: 30px 56px 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.masthead {
+  height: 62px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+.brand-light {
+  font-weight: 450;
+}
+.brand-mark {
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 27px;
+  line-height: 16px;
+  padding: 2px;
+  letter-spacing: 0;
+}
+.format-label,
+.eyebrow,
+.outcome-label,
+.cta-kicker {
+  font-family:
+    ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  font-weight: 650;
+}
+.format-label {
+  padding-top: 10px;
+  color: var(--muted);
+}
+.story {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+.scene-copy {
+  padding-top: 24px;
+  height: 145px;
+}
+.eyebrow {
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 46px;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  font-weight: 750;
+}
+.scene-caption {
+  font-size: 22px;
+  margin-top: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.diagram {
+  height: 300px;
+  width: 100%;
+  margin-top: 0;
+}
+.diagram svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.connection {
+  fill: none;
+  stroke-width: 4;
+  stroke: var(--teal);
+}
+.back {
+  color: var(--muted);
+  stroke: currentColor;
+  opacity: .2;
+}
+.arrow-label {
+  fill: var(--muted);
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: .2px;
+}
+.endpoint > rect:first-child {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.icon {
+  fill: var(--teal-pale);
+  stroke: var(--teal);
+  stroke-width: 1.5;
+}
+.icon-detail {
+  stroke: var(--teal);
+  stroke-width: 1.6;
+  fill: var(--teal);
+}
+.node-title {
+  font-size: 29px;
+  font-weight: 750;
+  fill: var(--ink);
+}
+.node-detail {
+  font-size: 22px;
+  fill: var(--ink);
+}
+.node-source {
+  font-size: 17px;
+  fill: var(--muted);
+}
+.pulse {
+  stroke: var(--surface);
+  stroke-width: 4;
+  fill: var(--teal);
+}
+.back-pulse {
+  fill: var(--red);
+}
+#guard-badge rect {
+  fill: var(--teal-pale);
+  stroke: var(--teal);
+  stroke-width: 2;
+}
+#guard-badge text {
+  fill: var(--teal);
+  font-size: 20px;
+  font-weight: 700;
+}
+.outcome {
+  border-left: 4px solid var(--teal);
+  background: var(--teal-pale);
+  padding: 14px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 24px;
+  min-height: 89px;
+}
+.outcome-label {
+  color: var(--teal);
+  align-self: center;
+  font-size: 12px;
+}
+.outcome strong {
+  font-size: 24px;
+  grid-row: 2;
+  line-height: 1.15;
+}
+.outcome p {
+  font-size: 18px;
+  line-height: 1.4;
+  grid-column: 2;
+  grid-row: 1/3;
+  align-self: center;
+}
+.disclosure {
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  flex-shrink: 0;
+  padding-bottom: 8px;
+}
+.timeline {
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 56px;
+  right: 56px;
+  background: var(--line);
+}
+#timeline-fill {
+  height: 100%;
+  width: 0;
+  background: var(--teal);
+}
+.demo[data-scene=loop] .back {
+  color: var(--red);
+  opacity: 1;
+}
+.demo[data-scene=loop] .outcome {
+  background: var(--red-pale);
+  border-color: var(--red);
+}
+.demo[data-scene=loop] .outcome-label,
+.demo[data-scene=loop] .eyebrow {
+  color: var(--red);
+}
+.demo[data-scene=loop] .endpoint > rect:first-child {
+  stroke: var(--red);
+}
+.demo[data-scene=guard] .back {
+  stroke-dasharray: 8 7;
+  opacity: .35;
+}
+.demo[data-scene=verify] .back {
+  color: var(--teal);
+  opacity: 1;
+}
+.demo[data-scene=verify] .back-pulse {
+  fill: var(--teal);
+}
+.cta {
+  height: 354px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.cta-kicker {
+  color: var(--muted);
+}
+.cta-button {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  padding: 23px 32px;
+  font-size: 35px;
+  letter-spacing: -1px;
+  font-weight: 750;
+  text-decoration: none;
+  color: var(--surface);
+  background: var(--teal);
+  border-radius: 5px;
+}
+.cta-url {
+  font-size: 24px;
+  letter-spacing: .2px;
+}
+.playback {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.playback button {
+  min-height: 44px;
+  border: 1px solid var(--teal);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--teal);
+  padding: 8px 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.playback input {
+  flex: 1;
+  min-width: 60px;
+  accent-color: var(--teal);
+}
+.playback output {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+body.capture .playback {
+  display: none;
+}
+@media (min-width: 1281px) {
+  body.capture .demo {
+    width: 100%;
+    height: 100vh;
+    padding-inline: max(56px, calc((100vw - 1168px)/2));
+  }
+}
+@media (max-width: 900px) {
+  .demo {
+    height: auto;
+    min-height: 640px;
+    padding: 24px 28px 0;
+  }
+  .brand {
+    font-size: 23px;
+  }
+  .format-label {
+    font-size: 11px;
+    max-width: 160px;
+    text-align: right;
+  }
+  .scene-copy {
+    height: auto;
+    min-height: 150px;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  .scene-caption {
+    font-size: 19px;
+  }
+  .diagram {
+    height: auto;
+    aspect-ratio: 1120/300;
+    margin: 24px 0;
+  }
+  .outcome {
+    grid-template-columns: 1fr;
+  }
+  .outcome p {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 6px;
+  }
+  .outcome strong {
+    font-size: 23px;
+  }
+  .disclosure {
+    height: auto;
+    min-height: 80px;
+    font-size: 13px;
+  }
+  .timeline {
+    left: 28px;
+    right: 28px;
+  }
+  .playback {
+    padding: 18px 28px;
+    flex-wrap: wrap;
+  }
+  .playback input {
+    min-width: 100px;
+  }
+  .cta {
+    height: 300px;
+  }
+  .cta-button {
+    font-size: 28px;
+  }
+  .cta-url {
+    font-size: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .demo {
+    padding: 20px 18px 0;
+    min-height: 660px;
+  }
+  .masthead {
+    height: 66px;
+  }
+  .brand {
+    font-size: 20px;
+    gap: 8px;
+  }
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+    line-height: 13px;
+  }
+  .format-label {
+    font-size: 9px;
+    max-width: 105px;
+    padding-top: 3px;
+  }
+  .scene-copy {
+    padding-top: 26px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .scene-caption {
+    font-size: 18px;
+  }
+  .eyebrow {
+    font-size: 11px;
+  }
+  .diagram {
+    margin: 28px -4px;
+    width: calc(100% + 8px);
+  }
+  .outcome {
+    padding: 12px 14px;
+  }
+  .outcome p {
+    font-size: 16px;
+  }
+  .outcome strong {
+    font-size: 21px;
+  }
+  .cta-kicker {
+    font-size: 10px;
+  }
+  .cta-button {
+    font-size: 25px;
+    gap: 24px;
+    padding: 18px 20px;
+  }
+  .cta-url {
+    font-size: 16px;
+  }
+  .timeline {
+    left: 18px;
+    right: 18px;
+  }
+  .playback {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+  .playback label {
+    flex-basis: 100%;
+  }
+  .playback button {
+    flex: 1;
+  }
+  .disclosure {
+    font-size: 12px;
+  }
+}
+.demo[data-scene=loop] #arrow-back path {
+  fill: var(--red);
+}
+.demo[data-scene=verify] #arrow-back path {
+  fill: var(--teal);
+}
